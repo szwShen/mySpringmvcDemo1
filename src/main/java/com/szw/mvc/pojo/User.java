@@ -37,6 +37,7 @@ public class User {
 
     @Override
     public String toString() {
+        System.out.println("hello");
         return null;
     }
 }
