@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.rog">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="dataTable">
+    <a th:href="@{/user}">查询所有user</a>
+    <a th:href="@{/user/1}">根据id查询user</a>
+    <a th:href="@{/user/1}">根据id删除user</a>
+    <form th:action="@{/user}" method="post">
+        username <input type="text" name="username"/>
+        password <input type="password" name="password"/>
+        提交<input type="submit"/>
+    </form>
+    <form th:action="@{/user}" method="post">
+        <input type="hidden" name="_method" value="put">
+        username <input type="text" name="username"/>
+        password <input type="password" name="password"/>
+        update<input type="submit" value="修改"/>
+    </form>
+    <form th:action="@{/user}" method="post">
+        <input type="hidden" name="_method" value="put">
+
+        update<input type="submit" value="delete"/>
+    </form>
+    <form id="delete_form" method="post">
+        <!-- HiddenHttpMethodFilter要求：必须传输_method请求参数，并且值为最终的请求方式 -->
+        <input type="hidden" name="_method" value="delete"/>
+    </form>
+    <a @click="deleteEmployee" th:href="@{/user}">delete</a>
+    <a th:href="@{/showsuccess}">showSuccess</a>
+    <a th:href="@{/testDown}">testdown</a>
+    <form th:action="@{/testUp}" method="post" enctype="multipart/form-data">
+        <input type="file" name="photo" />
+        <input type="submit" value="submit"/>
+    </form>
+</div>
+
+</body>
+<script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el: "#dataTable",
+        methods: {
+            //event表示当前事件
+            deleteEmployee: function (event) {
+                //通过id获取表单标签
+                var delete_form = document.getElementById("delete_form");
+                console.log(event);
+                console.log(delete_form);
+                //将触发事件的超链接的href属性为表单的action属性赋值
+                delete_form.action = event.target.href;
+                //提交表单
+                delete_form.submit();
+                //阻止超链接的默认跳转行为
+                event.preventDefault();
+            }
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.rog">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>shouye</h1>
+<a th:href="@{/target}">目标的路径</a>
+<a th:href="@{/success}">success</a>
+<a th:href="@{/mytarget(username='admin',password=123456)}">success</a>
+<form th:action="@{/success}" method="post">
+    去success<input type="submit"/>
+</form>
+<a th:href="@{/success2}">success</a>
+</body>
+<form th:action="@{/geturl3}" method="post">
+    username <input type="text" name="username"/>
+    password <input type="password" name="password"/>
+    去success<input type="submit"/>
+</form>
+<a th:href="@{/employee}">to employee</a>
+</html>
