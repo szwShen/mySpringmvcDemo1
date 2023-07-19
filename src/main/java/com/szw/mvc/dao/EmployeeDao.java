@@ -7,12 +7,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @Auther: szw
- * @Date: 2023/7/17 - 07 - 17 - 18:24
- * @Description: com.szw.mvc.dao
- * @version: 1.0
- */
 @Repository
 public class EmployeeDao {
 
@@ -20,7 +14,6 @@ public class EmployeeDao {
 
     static {
         employees = new HashMap<Integer, Employee>();
-
         employees.put(1001, new Employee(1001, "E-AA", "aa@163.com", 1));
         employees.put(1002, new Employee(1002, "E-BB", "bb@163.com", 1));
         employees.put(1003, new Employee(1003, "E-CC", "cc@163.com", 0));
